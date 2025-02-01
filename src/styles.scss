@@ -1,12 +1,12 @@
 @use "./colors.scss" as *;
 
 @font-face {
-    font-family: primary;
+    font-family: secondary;
     src: url("/fonts/BalooBhaijaan.ttf");
 }
 
 @font-face {
-    font-family: secondary;
+    font-family: primary;
     src: url("/fonts/Cairo.ttf");
 }
 

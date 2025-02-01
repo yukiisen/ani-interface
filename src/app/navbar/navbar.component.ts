@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { TranslatorPipe } from '../pipes/translator/translator.pipe';
 
 @Component({
   selector: 'app-navbar',
-  imports: [],
+  imports: [ TranslatorPipe ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
