@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="120"
+   height="120"
+   viewBox="0 0 120 120"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="icon.svg"
+   inkscape:export-filename="favicon.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="3.4883935"
+     inkscape:cx="25.799842"
+     inkscape:cy="53.606338"
+     inkscape:window-width="1416"
+     inkscape:window-height="839"
+     inkscape:window-x="15"
+     inkscape:window-y="44"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient4"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#5900d8;stop-opacity:1;"
+         offset="0"
+         id="stop4" />
+      <stop
+         style="stop-color:#793cff;stop-opacity:1;"
+         offset="1"
+         id="stop5" />
+    </linearGradient>
+    <rect
+       x="37.905405"
+       y="33.243243"
+       width="20.292214"
+       height="18.355962"
+       id="rect3" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4"
+       id="linearGradient5"
+       x1="86.86734"
+       y1="23.020323"
+       x2="33.132645"
+       y2="96.97979"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:url(#linearGradient5);fill-opacity:1"
+       id="path1"
+       cx="60"
+       cy="60"
+       r="45.709461" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64.8417px;font-family:Laziness;-inkscape-font-specification:Laziness;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#e0e8ff;stroke-width:3.50955;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:3;stroke-dasharray:none;stroke-dashoffset:56.25;stroke-opacity:0.635626;paint-order:markers fill stroke"
+       x="38.342873"
+       y="75.562004"
+       id="text4"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         x="38.342873"
+         y="75.562004"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Boba Mono';-inkscape-font-specification:'Boba Mono';fill:#ffffff;fill-opacity:1;stroke:#e0e8ff;stroke-width:3.50955;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:3;stroke-dasharray:none;stroke-dashoffset:56.25;stroke-opacity:0.635626;paint-order:markers fill stroke">A</tspan></text>
+  </g>
+</svg>
