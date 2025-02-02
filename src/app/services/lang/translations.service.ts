@@ -10,8 +10,14 @@ export class TranslationsService {
     constructor() { this.onInit() }
 
     async onInit() {
-        let res = await fetch(`/lang/${this.lang}.json`);
-        this.data = await res.json();
+        try {
+            let res = await fetch(`/lang/${this.lang}.json`);
+            this.data = await res.json();
+        } catch (error) {
+            this.lang = 'en';
+            let res = await fetch(`/lang/${this.lang}.json`);
+            this.data = await res.json();
+        }
     }
 
     changeLanguage (lang: string) {

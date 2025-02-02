@@ -10,20 +10,22 @@ form {
     margin-inline-end: 15%;
     position: relative;
 
+    $input-border: 2px;
+
     .searchbox {
         display: flex;
         align-items: center;
         background-color: lighten($color: $background, $amount: 1);
         border-radius: 10px;
-        border: 1px $accent solid;
+        border: $input-border $accent solid;
         overflow: hidden;
         
-        input { width: 100%; }
+        input { width: 100%;}
         > * { border-radius: 0; }
 
 
         &:has(+ .on) {
-            border-bottom: transparent;
+            border-bottom-color: transparent;
             border-bottom-right-radius: 0;
             border-bottom-left-radius: 0;
         }
@@ -41,12 +43,13 @@ form {
         border-radius: 5px;
         border-top-right-radius: 0;
         border-top-left-radius: 0;
-        border: 1px solid $accent;
-        border-top-color: $splitter-color;
+        
 
         &.on {
             height: 400px;
             opacity: 1;
+            border: $input-border solid $accent;
+            border-top-color: $splitter-color;
         }
     }
 }
