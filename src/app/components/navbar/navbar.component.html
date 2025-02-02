@@ -4,7 +4,7 @@
 </div>
 
 <ul>
-    <li [class.selected]="selected == 'updates'" (click)="navigate('updates')">
+    <li [class.selected]="selected == 'updates'" (click)="navigateTo('updates')">
         <svg viewBox="0 0 24 24">
             <path
                 style="fill: none"
@@ -17,7 +17,7 @@
         <span>{{ "updates" | translator }} </span>
     </li>
 
-    <li [class.selected]="selected == 'seasons'" (click)="navigate('seasons')">
+    <li [class.selected]="selected == 'seasons'" (click)="navigateTo('seasons')">
         <svg viewBox="0 0 48 48">
             <defs id="defs1" />
             <g id="layer1">
@@ -174,7 +174,7 @@
         <span>{{ "seasons" | translator }} </span>
     </li>
 
-    <li [class.selected]="selected == 'rating'" (click)="navigate('rating')">
+    <li [class.selected]="selected == 'rating'" (click)="navigateTo('rating')">
         <svg viewBox="0 0 24 24">
             <path
                 d="M3 10C3 6.13401 6.13401 3 10 3V10H3Z"
@@ -195,7 +195,7 @@
     </li>
 
     <li class="space"></li>
-    <li [class.selected]="selected == 'mylist'" (click)="navigate('mylist')">
+    <li [class.selected]="selected == 'mylist'" (click)="navigateTo('mylist')">
         <svg viewBox="0 0 24 24">
             <path
                 style="stroke: none"
@@ -216,7 +216,7 @@
         <span>{{ "mylist" | translator }} </span>
     </li>
 
-    <li [class.selected]="selected == 'special-list'" (click)="navigate('special-list')">
+    <li [class.selected]="selected == 'special-list'" (click)="navigateTo('special-list')">
         <svg viewBox="0 0 24 24">
             <path
                 style="fill: none"
@@ -229,7 +229,7 @@
         <span>{{ "special-list" | translator }} </span>
     </li>
 
-    <li [class.selected]="selected == 'favorites'" (click)="navigate('favorites')">
+    <li [class.selected]="selected == 'favorites'" (click)="navigateTo('favorites')">
         <svg viewBox="0 0 24 24">
             <path
                 style="fill: none"
@@ -244,7 +244,7 @@
     </li>
 
     <li class="space"></li>
-    <li [class.selected]="selected == 'last-watched'" (click)="navigate('last-watched')">
+    <li [class.selected]="selected == 'last-watched'" (click)="navigateTo('last-watched')">
         <svg viewBox="0 0 48 48">
             <defs id="defs1" />
             <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1">
@@ -308,7 +308,7 @@
         <span>{{ "last-watched" | translator }} </span>
     </li>
 
-    <li [class.selected]="selected == 'episode-times'" (click)="navigate('episode-times')">
+    <li [class.selected]="selected == 'episode-times'" (click)="navigateTo('episode-times')">
         <svg viewBox="0 0 48 48">
             <defs id="defs1" />
             <g id="layer1">
@@ -466,7 +466,7 @@
     </li>
 
     <li class="space"></li>
-    <li [class.selected]="selected == 'settings'" (click)="navigate('settings')">
+    <li [class.selected]="selected == 'settings'" (click)="navigateTo('settings')">
         <svg viewBox="0 0 24 24">
             <path
                 style="fill: none"

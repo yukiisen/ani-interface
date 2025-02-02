@@ -1,5 +1,5 @@
-<app-navbar></app-navbar>
+<app-navbar (navigate)="title = $event"></app-navbar>
 <section>
-    <app-searchbar></app-searchbar>
+    <app-searchbar [page]="title"></app-searchbar>
     <router-outlet></router-outlet>
 </section>

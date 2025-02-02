@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { TranslatorPipe } from '../../pipes/translator/translator.pipe';
 
 @Component({
@@ -9,8 +9,10 @@ import { TranslatorPipe } from '../../pipes/translator/translator.pipe';
 })
 export class NavbarComponent {
 	selected = "updates";
+	@Output() navigate = new EventEmitter;
 
-	navigate (page: string) {
+	navigateTo (page: string) {
 		this.selected = page;
+		this.navigate.next(page);
 	}
 }
