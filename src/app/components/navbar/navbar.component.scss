@@ -38,13 +38,14 @@ ul {
     }
 
     li.space {
-        background-color: lighten($color: $background, $amount: 10);
+        background-color: $splitter-color;
         height: 1px;
     }
 
     svg {
         width: 32px;
         padding: 4px;
+        order: 2;
         path, circle, rect {
             stroke: $text;
             fill: $text;

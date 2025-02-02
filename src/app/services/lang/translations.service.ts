@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 export class TranslationsService {
     data: Record<string, string> = {}
     lang: string = "ar"
-    thing: any = 5
 
     constructor() { this.onInit() }
 
@@ -19,5 +18,4 @@ export class TranslationsService {
         this.lang = lang;
         this.onInit();
     }
-
 }
