@@ -1,0 +1,53 @@
+@use "../../../colors.scss" as *;
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 15px;
+
+    li:not(.space) {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 5px 5px 0px;
+        margin: 5px 0;
+        text-align: right;
+        font-size: 16px;
+        border-radius: 5px;
+
+        &:hover {
+            background-color: lighten($color: $background, $amount: 3);
+        }
+
+        &.selected {
+            background-color: lighten($color: $background, $amount: 3);
+
+            path, circle, rect {
+                stroke: $main;
+                fill: $main;
+            }
+
+            span {
+                color: $main;
+            }
+        }
+    }
+
+    li.space {
+        background-color: lighten($color: $background, $amount: 10);
+        height: 1px;
+    }
+
+    svg {
+        width: 32px;
+        padding: 4px;
+        path, circle, rect {
+            stroke: $text;
+            fill: $text;
+        }
+    }
+}

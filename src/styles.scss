@@ -16,8 +16,28 @@
     margin: 0;
     box-sizing: border-box;
     color: $text;
+    transition-duration: 200ms;
+    user-select: none;
 }
 
 body {
     background-color: $background;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+app-root {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 20px;
 }

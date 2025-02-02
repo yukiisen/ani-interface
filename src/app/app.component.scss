@@ -1,5 +1,17 @@
 @use "../colors.scss" as *;
 
 * {
-    background-color: white !important;
+    display: flex;
+}
+
+app-navbar {
+    flex-direction: column;
+    width: max(220px, 18%);
+    background-color: darken($color: $background, $amount: 3);
+    padding: 10px;
+    overflow: auto;
+}
+
+router-outlet {
+    width: 100%;
 }
