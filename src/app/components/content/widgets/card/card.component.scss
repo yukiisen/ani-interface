@@ -1,0 +1,12 @@
+div.image {
+    display: flex;
+    flex-direction: column;
+    width: max(16%, 150px);
+    aspect-ratio: 315/450;
+        
+    margin: 10px;
+
+    background-size: cover;
+    border-radius: 10px;
+    overflow: hidden;
+}

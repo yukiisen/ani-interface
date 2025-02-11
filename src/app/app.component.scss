@@ -26,3 +26,9 @@ app-searchbar {
     display: flex;
     justify-content: space-between;
 }
+
+app-home {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+}

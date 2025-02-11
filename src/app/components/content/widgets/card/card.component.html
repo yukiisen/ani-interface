@@ -1,0 +1,8 @@
+<div class="image" [style.background-image]="'url(' + '/' + data.name.replaceAll(' ', '_') + '.webp' + ')'">
+    <p>{{ ("episode" | translator) + " " + data.episodes }}</p>
+    <p>{{ data.name }}</p>
+    <p class="stats">
+        <span>{{ data.status | translator }}</span>{{ " - " }}
+        <span>{{ data.score }}</span>
+    </p>
+</div>
