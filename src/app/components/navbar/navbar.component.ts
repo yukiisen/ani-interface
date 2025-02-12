@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslatorPipe } from '../../pipes/translator/translator.pipe';
 
 @Component({
@@ -11,8 +12,11 @@ export class NavbarComponent {
 	selected = "updates";
 	@Output() navigate = new EventEmitter;
 
+	constructor (private router: Router) {}
+
 	navigateTo (page: string) {
 		this.selected = page;
 		this.navigate.next(page);
+		this.router.navigate([page]);
 	}
 }
