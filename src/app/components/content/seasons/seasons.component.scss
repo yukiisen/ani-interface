@@ -1,0 +1,80 @@
+@use "../../../../colors.scss" as *;
+
+:host {
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    border-radius: 5px;
+    overflow-inline: hidden;
+
+    position: relative;
+
+    background-color: darken($background, 3);
+
+    a {
+        width: 25%;
+        transition-duration: 200ms;
+        border-bottom: 2px transparent solid;
+        text-align: center;
+        padding: 5px 12px;
+
+        &.active {
+            color: $accent;
+        }
+
+        &:hover {
+            color: $accent;
+        }
+    }
+
+    &.rtl {
+        a:nth-child(1).active ~ .bar {
+            left: 25% * 3;
+        }
+
+        a:nth-child(2).active ~ .bar {
+            left: 25% * 2;
+        }
+
+        a:nth-child(3).active ~ .bar {
+            left: 25% * 1;
+        }
+
+        a:nth-child(4).active ~ .bar {
+            left: 25% * 0;
+        }
+    }
+
+    &.ltr {
+        a:nth-child(1).active ~ .bar {
+            left: 25% * 0;
+        }
+
+        a:nth-child(2).active ~ .bar {
+            left: 25% * 1;
+        }
+
+        a:nth-child(3).active ~ .bar {
+            left: 25% * 2;
+        }
+
+        a:nth-child(4).active ~ .bar {
+            left: 25% * 3;
+        }
+    }
+
+    .bar {
+        width: 25%;
+        height: 2px;
+        position: absolute;
+        background-color: $accent;
+        top: 100%;
+        transition-duration: 200ms;
+        left: 0;
+    }
+}

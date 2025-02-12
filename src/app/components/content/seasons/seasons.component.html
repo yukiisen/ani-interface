@@ -1,1 +1,10 @@
-<p>seasons works!</p>
+<nav [class]="direction">
+    <a 
+        *ngFor="let key of tabList" 
+        [class.active]="active == key"
+        (click)="navigate(tabs[key], key)"
+    >
+        {{ key | translator }}
+    </a>
+    <span class="bar"></span>
+</nav>

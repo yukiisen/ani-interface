@@ -12,6 +12,14 @@
         "settings": "الاعدادات",
         "search": "إبحث",
         "episode": "الحلقة",
-        "airing": "مستمر"
+        "airing": "مستمر",
+        "Winter": "شتاء",
+        "Summer": "صيف",
+        "Fall": "خريف",
+        "Spring": "ربيع",
+        "Current Season": "الموسم الحالي",
+        "Next Season": "الموسم المقبل",
+        "Previous Season": "الموسم السابق",
+        "Other Seasons": "مواسم اخرى"
     }
 }

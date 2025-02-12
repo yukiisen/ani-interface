@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +6,9 @@ import { Injectable } from '@angular/core';
 export class TranslationsService {
     data: Record<string, string> = {}
     lang: string = "ar"
-    direction: "ltr" | "rtl" = "ltr";
+    direction: "ltr" | "rtl" = "ltr"
+    loaded = false;
+    onLoad = new EventEmitter<void>
 
     constructor() { this.onInit() }
 
@@ -16,7 +18,10 @@ export class TranslationsService {
             const data = await res.json();
             this.data = data.content;
             this.direction = data.direction;
+            this.onLoad.emit();
+            this.loaded = true;
         } catch (error) {
+            console.error(error);
             this.lang = 'en';
             this.onInit();
         }
