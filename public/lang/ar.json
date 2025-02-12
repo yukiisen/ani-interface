@@ -1,13 +1,17 @@
 {
-    "updates": "أخر التحديثات",
-    "seasons": "المواسم",
-    "rating": "التقييم العالمي",
-    "mylist": "قائمتي",
-    "special-list": "القائمة المخصصة",
-    "favorites": "أنمياتي المفضلة",
-    "last-watched": "آخر المشاهدات",
-    "episode-times": "مواعيد نزول الحلقات",
-    "settings": "الاعدادات",
-    "search": "إبحث",
-    "episode": "الحلقة"
+    "direction": "rtl",
+    "content": {
+        "updates": "أخر التحديثات",
+        "seasons": "المواسم",
+        "rating": "التقييم العالمي",
+        "mylist": "قائمتي",
+        "special-list": "القائمة المخصصة",
+        "favorites": "أنمياتي المفضلة",
+        "last-watched": "آخر المشاهدات",
+        "episode-times": "مواعيد نزول الحلقات",
+        "settings": "الاعدادات",
+        "search": "إبحث",
+        "episode": "الحلقة",
+        "airing": "مستمر"
+    }
 }

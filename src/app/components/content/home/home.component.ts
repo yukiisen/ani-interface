@@ -13,7 +13,7 @@ export class HomeComponent {
 	lastUpdates: AnimeCard[] = []
 
 	constructor () {
-		for (let i = 0; i < 10; i++) {
+		for (let i = 0; i < 23; i++) {
 			this.lastUpdates.push({
 				name: "Another",
 				id: 6547,

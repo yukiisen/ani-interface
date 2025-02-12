@@ -1,12 +1,25 @@
-div.image {
+:host {
     display: flex;
     flex-direction: column;
-    width: max(16%, 150px);
-    aspect-ratio: 315/450;
-        
-    margin: 10px;
+    justify-content: flex-end;
 
+    width: 18%;
+    aspect-ratio: 315/450;
+    margin: 1%;
+    
     background-size: cover;
     border-radius: 10px;
     overflow: hidden;
+}
+
+div.image {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    background-color: #000000dd;
+    justify-content: flex-end;
+}
+
+.episode {
+    font-size: 14px;
 }
