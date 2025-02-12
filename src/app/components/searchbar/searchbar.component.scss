@@ -36,7 +36,8 @@ form {
         height: 0px;
         position: absolute;
         top: calc(100% + 0px);
-        transition-duration: 500ms;
+        transition-duration: 200ms;
+        transition-property: height;
         opacity: 0;
 
         background-color: darken($background, 1);

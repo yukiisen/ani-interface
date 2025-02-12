@@ -10,7 +10,7 @@ import { TranslationsService } from './services/lang/translations.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   host: {
-    "[class.rtl]": 'this.translation.lang == "ar"'
+    "[style.direction]": 'translation.direction'
   }
 })
 export class AppComponent {

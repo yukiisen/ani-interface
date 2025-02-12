@@ -6,17 +6,19 @@ import { Injectable } from '@angular/core';
 export class TranslationsService {
     data: Record<string, string> = {}
     lang: string = "ar"
+    direction: "ltr" | "rtl" = "ltr";
 
     constructor() { this.onInit() }
 
     async onInit() {
         try {
-            let res = await fetch(`/lang/${this.lang}.json`);
-            this.data = await res.json();
+            const res = await fetch(`/lang/${this.lang}.json`);
+            const data = await res.json();
+            this.data = data.content;
+            this.direction = data.direction;
         } catch (error) {
             this.lang = 'en';
-            let res = await fetch(`/lang/${this.lang}.json`);
-            this.data = await res.json();
+            this.onInit();
         }
     }
 
