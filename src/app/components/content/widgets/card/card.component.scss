@@ -3,21 +3,81 @@
     flex-direction: column;
     justify-content: flex-end;
 
-    width: 18%;
+    $slots: 5;
+
+    width: (100% / $slots) - 1%;
     aspect-ratio: 315/450;
-    margin: 1%;
+    margin: 0.5%;
     
-    background-size: cover;
     border-radius: 10px;
     overflow: hidden;
+
+    position: relative;
+
+    &:hover {
+
+        .image {
+            filter:blur(0.3rem);
+        }
+        
+        .data {
+            transform: translateY(0);
+        }
+    }
 }
 
-div.image {
+.image {
+    background-color: rgba(0, 0, 0, 0.363);
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+    background-size: cover;
+    transition-duration: 400ms;
+}
+
+.data {
     display: flex;
     flex-direction: column;
-    padding: 8px;
-    background-color: #000000dd;
     justify-content: flex-end;
+    align-items: center;
+
+    transform: translateY(100%);
+    transition-duration: 400ms;
+
+    height: 100%;
+
+    > * { width: 100%; }
+
+    .name {
+        font-size: 20px;
+    }
+
+    .metadata {
+        background-color: #000000dd;
+        padding: 8px;
+    }
+
+    .score {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        p {
+            font-size: 24px;
+        }
+
+        svg {
+            width: 35%;
+        }
+
+        path {
+            $star: rgb(255, 187, 0);
+            fill: $star;
+            stroke: $star;
+        }
+    }
 }
 
 .episode {

@@ -1,5 +1,13 @@
 @use "../../../colors.scss" as *;
 
+:host {
+    background-color: darken($color: $background, $amount: 3);
+    padding: 8px 30px;
+    border-bottom: 1px solid $splitter-color;
+    display: flex;
+    justify-content: space-between;
+}
+
 p {
     font-size: 18px;
     width: 150px;

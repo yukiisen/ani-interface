@@ -12,11 +12,15 @@ export class NavbarComponent {
 	selected = "updates";
 	@Output() navigate = new EventEmitter;
 
+	routingMap: { [ key: string ]: string } = {
+		updates: "home",
+	}
+
 	constructor (private router: Router) {}
 
 	navigateTo (page: string) {
 		this.selected = page;
 		this.navigate.next(page);
-		this.router.navigate([page]);
+		this.router.navigate([this.routingMap[page] || page]);
 	}
 }

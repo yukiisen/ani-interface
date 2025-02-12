@@ -1,5 +1,15 @@
 @use "../../../colors.scss" as *;
 
+:host {
+    flex-direction: column;
+    width: max(220px, 18%);
+    background-color: darken($color: $background, $amount: 3);
+    padding: 10px;
+    overflow: auto;
+    border-right: 1px solid $splitter-color;
+    border-left: 1px solid $splitter-color;
+}
+
 .profile {
     display: flex;
     align-items: center;
@@ -11,6 +21,7 @@ ul {
     margin-top: 15px;
 
     li:not(.space) {
+        transition-duration: 200ms;
         display: flex;
         justify-content: space-between;
         padding: 5px;
