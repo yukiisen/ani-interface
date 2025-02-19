@@ -10,4 +10,5 @@ import { TranslatorPipe } from '../../../../pipes/translator/translator.pipe';
 })
 export class CardComponent {
 	@Input({ required: true }) data!: AnimeCard;
+	@Input() mode: "season" | "episode" = "season";
 }

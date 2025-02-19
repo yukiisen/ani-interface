@@ -2,7 +2,9 @@
 
 :host {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: auto;
 }
 
 nav {
@@ -24,11 +26,11 @@ nav {
         padding: 5px 12px;
 
         &.active {
-            color: $accent;
+            color: $main;
         }
 
         &:hover {
-            color: $accent;
+            color: $main;
         }
     }
 
@@ -77,4 +79,10 @@ nav {
         transition-duration: 200ms;
         left: 0;
     }
+}
+
+.contents {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 4%;
 }

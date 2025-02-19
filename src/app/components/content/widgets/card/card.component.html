@@ -6,7 +6,7 @@
     </span>
     <span class="metadata">
         <p class="name">{{ data.name }}</p>
-        <p class="episode">{{ ("episode" | translator) + " " + data.episodes }}</p>
+        <p class="episode">{{ mode == "episode"? (("episode" | translator) + " " + data.episodes): data.status | translator }}</p>
     </span>
     <!-- <p class="stats">
         <span>{{ data.status | translator }}</span>{{ " - " }}
