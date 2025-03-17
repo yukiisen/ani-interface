@@ -2,7 +2,7 @@
 
 :host {
     flex-direction: column;
-    width: max(220px, 18%);
+    min-width: max(200px, 15%);
     background-color: darken($color: $background, $amount: 3);
     padding: 10px;
     overflow: auto;
@@ -23,13 +23,12 @@ ul {
     li:not(.space) {
         transition-duration: 200ms;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         padding: 5px;
-        padding-inline-end: 0;
         margin: 5px 0;
         text-align: right;
         font-size: 16px;
-        border-radius: 5px;
+        border-radius: 10px;
 
         &:hover {
             background-color: lighten($color: $background, $amount: 3);
@@ -37,14 +36,17 @@ ul {
 
         &.selected {
             background-color: lighten($color: $background, $amount: 3);
-
+            background-color: $main;
             path, circle, rect {
                 stroke: $main;
                 fill: $main;
+                stroke: $text;
+                fill: $text;
             }
 
-            span {
+            a {
                 color: $main;
+                color: $text;
             }
         }
     }
@@ -55,9 +57,9 @@ ul {
     }
 
     svg {
-        width: 32px;
+        width: 30px;
         padding: 4px;
-        order: 2;
+        margin-inline-end: 3px;
         path, circle, rect {
             stroke: $text;
             fill: $text;

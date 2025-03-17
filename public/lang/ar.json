@@ -2,6 +2,7 @@
     "direction": "rtl",
     "content": {
         "updates": "أخر التحديثات",
+        "home": "الرئيسية",
         "seasons": "المواسم",
         "rating": "التقييم العالمي",
         "mylist": "قائمتي",
@@ -12,6 +13,7 @@
         "settings": "الاعدادات",
         "search": "إبحث",
         "episode": "الحلقة",
+        "episodes": "حلقة",
         "airing": "مستمر",
         "Winter": "شتاء",
         "Summer": "صيف",
@@ -20,6 +22,14 @@
         "Current Season": "الموسم الحالي",
         "Next Season": "الموسم المقبل",
         "Previous Season": "الموسم السابق",
-        "Other Seasons": "مواسم اخرى"
+        "Other Seasons": "مواسم اخرى",
+        "TV": "مسلسل",
+        "Movie": "فيلم",
+        "OVA": "أوفا",
+        "ONA": "أونا",
+        "Special": "حلقة خاصة",
+        "TV Special": "عرض خاص",
+        "anime": "أنمي",
+        "theepisodes": "الحلقات"
     }
 }

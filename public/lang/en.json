@@ -2,6 +2,7 @@
     "direction": "ltr",
     "content": {
         "updates": "Last Updates",
+        "home": "Home",
         "seasons": "Seasons",
         "rating": "Global Rating",
         "mylist": "My List",
@@ -11,6 +12,8 @@
         "episode-times": "New Episodes",
         "settings": "Settings",
         "search": "Search",
-        "episode": "Episode"
+        "episode": "Episode",
+        "theepisodes": "Episodes",
+        "anime": "Anime"
     }
 }

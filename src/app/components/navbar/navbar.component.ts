@@ -12,8 +12,9 @@ export class NavbarComponent implements OnInit {
 	selected: string = "";
 	@Output("navigate") currentPage = new EventEmitter<string>;
 
-	routingMap: { [ key: string ]: string } = {
-		updates: "home",
+	routingMap: Record<string, string> = {
+		updates: "updates",
+		home: "home",
 		seasons: "seasons/current"
 	}
 

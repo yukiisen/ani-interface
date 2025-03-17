@@ -15,5 +15,5 @@ import { TranslationsService } from './services/lang/translations.service';
 })
 export class AppComponent {
   title = "updates"
-  constructor (private translation: TranslationsService) {}
+  constructor (public translation: TranslationsService) {}
 }

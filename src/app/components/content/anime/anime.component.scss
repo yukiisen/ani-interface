@@ -1,0 +1,142 @@
+@use '../../../../colors.scss' as *;
+
+:host {
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(100% - 55px);
+    padding: 10px;
+    padding-bottom: 20px;
+    overflow: auto;
+
+    > section {
+        $large_width: 55%;
+
+        &.main {
+            width: 100%;
+        }
+
+        &.right {
+            width: $large_width;
+        }
+
+        &.left {
+            width: calc(100% - $large_width);
+        }
+
+        &:not(.main) > section {
+            background-color: darken($color: $background, $amount: 4);
+            padding: 5px;
+            border-radius: 8px;
+            margin: 0px 5px 10px;
+        }
+    }
+}
+
+section.main {
+    position: relative;
+    margin: 20px 60px;
+    .bg {
+        position: absolute;
+        background-image: url(/Another.webp);
+        background-size: cover;
+        background-position: center;
+        filter: blur(2rem) brightness(0.5);
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+}
+
+.metadata {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin: 3% 0;
+
+    > img {
+        height: 340px;
+        border-radius: 10px;
+    }
+
+    > div {
+        margin-top: 10px;
+        width: 60%;
+    }
+
+    h1 { font-size: 32px; }
+    .statistics {
+        list-style-type: none;
+        display: flex;
+        
+        li {
+            display: flex;
+            aspect-ratio: 1/1;
+            flex-direction: column;
+            align-items: center;
+            margin-inline-end: 20px;
+            margin-top: 10px;
+            svg { width: 40px; }
+        }
+    }
+}
+
+.synopsis {
+    p {
+        white-space: pre;
+        text-wrap-mode: wrap;
+    }
+}
+
+.episodes {
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+.episodes h1 {
+    font-size: 26px;
+    margin: 5px;
+}
+
+.episodes ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    
+
+    li {
+        border-bottom: 1px solid $splitter-color;
+        transition-duration: 200ms;
+        background-color: #ddd0;
+        &:last-of-type {
+            border: none;
+        }
+
+        &:hover {
+            background-color: #ddd1;
+        }
+    } 
+
+    a {
+        padding: 5px;
+        display: block;
+        width: 100%;
+    }
+}
+
+/*
+@media screen and (max-width: 1270px) {
+    .metadata {
+        flex-direction: column;
+        align-items: center;
+        > img {
+            order: -1;
+            width: 40%;
+        }
+
+        > div {
+            width: 100%;
+
+            text-align: center;
+        }
+    }
+}*/
