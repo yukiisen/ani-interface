@@ -1,45 +1,80 @@
 <section class="main">
-    <div class="bg"></div>
+    <div class="bg" [style]="'background-image: url(' + API_URL + 'static/' + anime.local_name.replaceAll(' ', '_') + '.webp);'"></div>
 
     <section class="metadata">
         <div>
-            <h1>Death Billiards</h1>
-            <p>{{ "TV" | translator }} | {{ 16 + " " + ("episodes" | translator) }}</p>
-            <p>{{ "Winter" | translator }} 2025 ({{ "airing" | translator }})</p>
+            <h1>{{ anime.title }}</h1>
+            <p>{{ anime.type | translator }} | {{ anime.episodes + " " + ("episodes" | translator) }}</p>
+            <p>{{ (anime.season || "") | translator }} {{ anime.year }} ({{ anime.status | translator }})</p>
+
+            <p>
+                {{ "Duration" | translator }}: 
+                <span *ngIf="!!episodeDuraion[1]">
+                {{ episodeDuraion[1] }} {{ "hours" | translator }}
+                </span> 
+                {{ episodeDuraion[0] }} {{ "minutes" | translator }}
+            </p>
+            <p>{{ "Source" | translator }}: {{ anime.source | translator }}</p>
+            <p>{{ "rating" | translator }}: {{ anime.rating + '+' }}</p>
+            <p>
+                {{ "studio" | translator }}: {{ anime.studio }}
+            </p>
+            <p class="genres">
+                <span *ngFor="let gen of anime.genres">{{ gen | translator }}</span>
+                <span *ngFor="let theme of anime.themes">{{ theme | translator }}</span>
+            </p>
 
             <ul class="statistics">
-                <li>
+                <li id="mal-score" title="{{ 'global-rating' | translator }}">
                     <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
                        <circle cx="512" cy="512" r="512" style="fill:#2e51a2"/>
                        <path d="M432.49 410.61V590.3l-44.86-.06V479l-43.31 51.29-42.43-52.44-.43 112.75H256V410.65h47l39.79 54.29 43-54.31zm184.06 44.14.53 135.15h-50.45l-.17-61.25h-59.73c1.49 10.65 4.48 27 8.9 38 3.31 8.13 6.36 16 12.44 24.06l-36.37 24c-7.45-13.57-13.27-28.52-18.73-44.42a198.31 198.31 0 0 1-10.82-46.49c-1.81-16-2.07-31.38 2.28-47.19a83.37 83.37 0 0 1 24.77-39.81c6.68-6.25 16-10.67 23.47-14.66s15.85-5.63 23.62-7.66a158 158 0 0 1 25.41-3.9c8.49-.73 23.62-1.41 51-.6l11.63 37.31h-58.78c-12.65.17-18.73 0-28.61 4.46a47.7 47.7 0 0 0-27.26 41l56.81.7.81-38.61h49.26zM701.72 410v141.35L768 552l-9.17 37.87H656.28V409.33z" style="fill:#fff"/>
                     </svg>
 
-                    7.84
+                    {{ anime.score }}
                 </li>
-                <li>
+                <li id="user-score">
                     <svg viewBox="0 0 24 24" fill="#ffba00" xmlns="http://www.w3.org/2000/svg">
 <path d="M11.2691 4.41115C11.5006 3.89177 11.6164 3.63208 11.7776 3.55211C11.9176 3.48263 12.082 3.48263 12.222 3.55211C12.3832 3.63208 12.499 3.89177 12.7305 4.41115L14.5745 8.54808C14.643 8.70162 14.6772 8.77839 14.7302 8.83718C14.777 8.8892 14.8343 8.93081 14.8982 8.95929C14.9705 8.99149 15.0541 9.00031 15.2213 9.01795L19.7256 9.49336C20.2911 9.55304 20.5738 9.58288 20.6997 9.71147C20.809 9.82316 20.8598 9.97956 20.837 10.1342C20.8108 10.3122 20.5996 10.5025 20.1772 10.8832L16.8125 13.9154C16.6877 14.0279 16.6252 14.0842 16.5857 14.1527C16.5507 14.2134 16.5288 14.2807 16.5215 14.3503C16.5132 14.429 16.5306 14.5112 16.5655 14.6757L17.5053 19.1064C17.6233 19.6627 17.6823 19.9408 17.5989 20.1002C17.5264 20.2388 17.3934 20.3354 17.2393 20.3615C17.0619 20.3915 16.8156 20.2495 16.323 19.9654L12.3995 17.7024C12.2539 17.6184 12.1811 17.5765 12.1037 17.56C12.0352 17.5455 11.9644 17.5455 11.8959 17.56C11.8185 17.5765 11.7457 17.6184 11.6001 17.7024L7.67662 19.9654C7.18404 20.2495 6.93775 20.3915 6.76034 20.3615C6.60623 20.3354 6.47319 20.2388 6.40075 20.1002C6.31736 19.9408 6.37635 19.6627 6.49434 19.1064L7.4341 14.6757C7.46898 14.5112 7.48642 14.429 7.47814 14.3503C7.47081 14.2807 7.44894 14.2134 7.41394 14.1527C7.37439 14.0842 7.31195 14.0279 7.18708 13.9154L3.82246 10.8832C3.40005 10.5025 3.18884 10.3122 3.16258 10.1342C3.13978 9.97956 3.19059 9.82316 3.29993 9.71147C3.42581 9.58288 3.70856 9.55304 4.27406 9.49336L8.77835 9.01795C8.94553 9.00031 9.02911 8.99149 9.10139 8.95929C9.16534 8.93081 9.2226 8.8892 9.26946 8.83718C9.32241 8.77839 9.35663 8.70162 9.42508 8.54808L11.2691 4.41115Z" stroke="#ffba00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-                7.88
+                    9.6
+                </li>
+
+                <li title="{{ 'popularity' | translator }}">
+                    <svg viewBox="0 0 24 24" role="img" aria-labelledby="trendingUpIconTitle" stroke="#ddd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000000"> <polyline points="3 17 9 11 13 15 20.405 7.595"/> <path stroke-linecap="round" d="M20.4054613,7.59453873 L21,7"/> <polyline points="21 10 21 7 18 7"/> </svg>
+                    {{ anime.popularity }}
+                </li>
+
+                <li title="{{ 'rank' | translator }}">
+<svg viewBox="0 0 24 24">
+    
+    <g id="text-edit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="list-order" fill="#ddd">
+            <path d="M10,4 L20,4 C20.5522847,4 21,4.44771525 21,5 C21,5.55228475 20.5522847,6 20,6 L10,6 C9.44771525,6 9,5.55228475 9,5 C9,4.44771525 9.44771525,4 10,4 Z M10,11 L20,11 C20.5522847,11 21,11.4477153 21,12 C21,12.5522847 20.5522847,13 20,13 L10,13 C9.44771525,13 9,12.5522847 9,12 C9,11.4477153 9.44771525,11 10,11 Z M10,18 L20,18 C20.5522847,18 21,18.4477153 21,19 C21,19.5522847 20.5522847,20 20,20 L10,20 C9.44771525,20 9,19.5522847 9,19 C9,18.4477153 9.44771525,18 10,18 Z M4.5,4 C4.22385763,4 4,3.77614237 4,3.5 C4,3.22385763 4.22385763,3 4.5,3 L5.5,3 C5.78000021,3 6,3.22000003 6,3.5 L6,6.5 C6,6.77614237 5.77614237,7 5.5,7 C5.22385763,7 5,6.77614237 5,6.5 L5,4.0148508 L4.5,4 Z M4.5,10 C4.5,10 6.5,10 6.5,10 C6.78000021,10 7,10.2200003 7,10.5 C7,10.5 7,10.6666667 7,11 L5.30000019,13 C6.10000006,13 6.5,13 6.5,13 C6.78000021,13 7,13.2200003 7,13.5 C7,13.7799997 6.77557563,14 6.5,14 C6.5,14 4.5,14 4.5,14 C4.21999979,14 4,13.7799997 4,13.5 C4,13.5 4,13.3333333 4,13 L5.69999981,11 C4.89999994,11 4.5,11 4.5,11 C4.21999979,11 4,10.7799997 4,10.5 C4,10.2200003 4.19889333,10 4.5,10 Z M6.5,21 L4.5,21 C4.22385763,21 4,20.7761424 4,20.5 C4,20.2238576 4.22385763,20 4.5,20 L6,20 L6,19.5 L4.5,19.5 C4.22385763,19.5 4,19.2761424 4,19 C4,18.7238576 4.22385763,18.5 4.5,18.5 L6,18.5 L6,18 L4.5,18 C4.22385763,18 4,17.7761424 4,17.5 C4,17.2238576 4.22385763,17 4.5,17 L6.5,17 C6.77614237,17 7,17.2238576 7,17.5 L7,20.5 C7,20.7761424 6.77614237,21 6.5,21 Z" id="Shape">
+
+</path>
+        </g>
+    </g>
+</svg>
+                {{ anime.rank }}
                 </li>
             </ul>
 
-    <section class="synopsis">
-        <p>venez voir le clou du spectacle de la justice je suis l'oracle la deesse aux cent miracles l'ocean sera mon cavairer valse sur la mer couronnee de lumiere la ballering exemplaire est acclamee tour a tout, rogue au bien ragulette la maree s'invite a la fete chaque jour petille dans ma bulle ou la vie est parfaite levez vos verres levez vos mains  de l'injustice le receptacle luis-je pretendre a un miracle? j'ouvrirai la voie desenchainee valse a coeur ouvert, decidee et sincere la ballerine solitaire sera la clef
-        </p>
+            <section class="synopsis" (click)="synExpand = !synExpand" [style]="'max-height: ' + (synExpand? '1000px': '180px') + ';'">
+        <p>{{ synopsis }}</p>
     </section>
         </div>
-        <img src="/Another.webp" />
+        <img [src]="API_URL + 'static/' + anime.local_name.replaceAll(' ', '_') + '.webp'" #poster/>
     </section>
 </section>
 
 
 <section class="left">
-    <section class="episodes">
+    <section class="episodes" id="episodes">
         <h1>{{ "theepisodes" | translator }}: </h1>
         <ul>
-            <li *ngFor="let i of [1,2,3,4,5,6,7]"><a>
-                    <span class="name">{{ "episode" | translator }} {{ i }}: Some title</span>
+            <li *ngFor="let ep of (episodes$ | async)?.sort(sortEps)"><a>
+                    <span class="name">{{ "episode" | translator }} {{ ep.episode_number }}: {{ ep.title_english || ( "No Title" | translator ) }}</span>
             </a></li>
         </ul>
     </section>

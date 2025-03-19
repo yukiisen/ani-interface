@@ -4,7 +4,8 @@
         "updates": "Last Updates",
         "home": "Home",
         "seasons": "Seasons",
-        "rating": "Global Rating",
+        "rating": "Rating",
+        "global-rating": "Global Rating",
         "mylist": "My List",
         "special-list": "Custom List",
         "favorites": "Favorites",
@@ -14,6 +15,7 @@
         "search": "Search",
         "episode": "Episode",
         "theepisodes": "Episodes",
-        "anime": "Anime"
+        "anime": "Anime",
+        "studio": "Studio"
     }
 }

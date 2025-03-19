@@ -4,7 +4,8 @@
         "updates": "أخر التحديثات",
         "home": "الرئيسية",
         "seasons": "المواسم",
-        "rating": "التقييم العالمي",
+        "rating": "الفئة العمرية",
+        "global-rating": "التقييم العالمي",
         "mylist": "قائمتي",
         "special-list": "القائمة المخصصة",
         "favorites": "أنمياتي المفضلة",
@@ -15,6 +16,8 @@
         "episode": "الحلقة",
         "episodes": "حلقة",
         "airing": "مستمر",
+        "Currently Airing": "مستمر",
+        "Finished Airing": "مكتمل",
         "Winter": "شتاء",
         "Summer": "صيف",
         "Fall": "خريف",
@@ -30,6 +33,18 @@
         "Special": "حلقة خاصة",
         "TV Special": "عرض خاص",
         "anime": "أنمي",
-        "theepisodes": "الحلقات"
+        "theepisodes": "الحلقات",
+        "Duration": "المدة",
+        "minutes": "دقيقة",
+        "hours": "ساعة",
+        "Source": "المصدر",
+        "Light novel": "رواية خفيفة",
+        "Game": "لعبة",
+        "Manga": "مانغا",
+        "Original": "نص اصلي",
+        "studio": "الاستوديو",
+        "popularity": "الشهرة",
+        "rank": "المرتبة",
+        "Web manga": "مانها"
     }
 }
