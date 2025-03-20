@@ -3,9 +3,10 @@
     flex-direction: column;
     justify-content: flex-end;
 
-    $slots: 6;
+    //$slots: 6;
 
-    width: (100% / $slots) - 1%;
+    //width: (100% / $slots) - 1%;
+    width: 170px;
     aspect-ratio: 315/450;
     margin: 0.5%;
     
@@ -14,10 +15,13 @@
 
     position: relative;
 
+    * { text-decoration: none; }
     &:hover {
 
+        * { text-decoration: none; }
+
         .image {
-            filter:blur(0.3rem);
+            filter:blur(0.3rem) brightness(0.5);
         }
         
         .data {

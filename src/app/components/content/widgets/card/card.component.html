@@ -1,15 +1,12 @@
-<div class="image" [style.background-image]="'url(' + '/' + data.name.replaceAll(' ', '_') + '.webp' + ')'"></div>
-<div class="data">
+<div class="image" [style.background-image]="imagePath()"></div>
+<a class="data" [routerLink]="['/anime', data.mal_id]">
     <span class="score">
         <svg viewBox="0 0 120 120" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs1" /><g id="layer1"><path style="mix-blend-mode:normal;fill-opacity:1;stroke-width:3.60754075;stroke-miterlimit:3;stroke-dashoffset:56.25;stroke-opacity:1;paint-order:markers fill stroke;stroke-dasharray:none;stroke-linejoin:round;stroke-linecap:square" id="path3" d="M 59.999998,49.054052 37.722924,34.434584 15.482906,49.110359 22.502852,23.40594 1.6728166,6.7894893 28.288455,5.5227522 37.654804,-19.422554 47.084227,5.4989788 73.702984,6.6983821 52.91505,23.367474 Z" transform="matrix(-1.287352,0,0,1.3134427,108.51599,41.087855)" /></g></svg>
-        <p>{{ data.score }}/10</p>
+        <p>{{ data.score }}/{{ ['Movie'].includes(data.type)? 10: 5 }}</p>
     </span>
     <span class="metadata">
-        <p class="name">{{ data.name }}</p>
-        <p class="episode">{{ mode == "episode"? (("episode" | translator) + " " + data.episodes): data.status | translator }}</p>
+        <p class="name">{{ data.title }}</p>
+        <p class="episode" *ngIf="mode == 'episode'">{{ data.type !== "Movie"? (("episode" | translator) + " " + data.episode_number): "Movie" | translator }}</p>
+        <p class="episode" *ngIf="mode != 'episode'">{{ data.status }}</p>
     </span>
-    <!-- <p class="stats">
-        <span>{{ data.status | translator }}</span>{{ " - " }}
-        
-    </p> -->
-</div>
+</a>

@@ -48,7 +48,7 @@ export class ColorsService {
     }
 
     private normalize (color: number[]) {
-        if (color.filter(c => c <= 80).length > 1) return color.map(c => Math.min(255, c + 40));
+        if (color.filter(c => c <= 80).length > 1) return color.map(c => Math.min(255, c + 60));
         else if (color.filter(c => c >= 200).length > 1) return color.map(c => Math.max(0, c - 60));
 
         return color;
