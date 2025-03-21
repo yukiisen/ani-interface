@@ -1,59 +1,41 @@
-# Default
+# Anime Library UI
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
+## Overview
+This project is a web-based UI for an animelib, designed to manage and display anime collections effectively. It provides detailed information about each anime, including synopsis, episodes, scores, and user-specific details. The UI is built with Angular and features a clean design (hopefully).
 
-## Development server
+## Features
+- **Multi-language support**: Translations are stored in JSON files, loaded dynamically per session.
+- **Anime Details Page**: Displays synopsis, episode list, user scores, and related recommendations.
+- **REST API Integration**: Fetches anime data from a backend API.
 
-To start a local development server, run:
+## Tech Stack
+- **Frontend**: Angular
+- **Styling**: SASS
+- **Data Handling**: JSON-based storage with REST API communication
+- **Hosting**: Designed for local use but adaptable for online deployment
 
-```bash
-ng serve
-```
+## Installation & Setup
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yukiisen/ani-interface.git
+   cd ani-interface
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Run the development server:
+   ```sh
+   ng serve
+   ```
+4. Open the UI in a browser at `http://localhost:4200/`
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Future Enhancements
+- Finish the undone features.
+- Implementing a light mode.
+- Adding search and filtering capabilities.
+- Improving user scores and preferences management.
+- Creating a recommendation system.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## License
+MIT License - Free to use and modify.
