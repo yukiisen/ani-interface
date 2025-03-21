@@ -1,5 +1,7 @@
 # Anime Library UI
 
+**Note:** this project is still in development, many features are lacking.
+
 ## Overview
 This project is a web-based UI for an animelib, designed to manage and display anime collections effectively. It provides detailed information about each anime, including synopsis, episodes, scores, and user-specific details. The UI is built with Angular and features a clean design (hopefully).
 
@@ -36,6 +38,3 @@ This project is a web-based UI for an animelib, designed to manage and display a
 - Adding search and filtering capabilities.
 - Improving user scores and preferences management.
 - Creating a recommendation system.
-
-## License
-MIT License - Free to use and modify.
