@@ -9,3 +9,9 @@ section {
     display: flex;
     flex-direction: column;
 }
+
+app-dialog.visible {
+    ~ :not(app-dialog) {
+        filter: blur(0.6rem);
+    }
+}

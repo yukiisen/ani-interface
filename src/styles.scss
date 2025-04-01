@@ -25,8 +25,8 @@
     margin: 0;
     box-sizing: border-box;
     color: $text;
+    transition-duration: 200ms;
     scroll-behavior: smooth;
-    user-select: none;
 }
 
 body {

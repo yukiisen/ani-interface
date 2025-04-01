@@ -10,6 +10,7 @@ import { ColorsService } from '../../../services/colors/colors.service';
 
 import { RelationComponent } from '../widgets/relation/relation.component';
 import { RecommendationComponent } from '../widgets/recommended/recommended.component';
+import {DialogManagerService} from '../../../services/dialogs/dialog-manager.service';
 
 @Component({
   selector: 'app-anime',
@@ -30,7 +31,13 @@ export class AnimeComponent implements OnInit, AfterViewInit {
 
     synExpand = false;
 
-    constructor (private route: ActivatedRoute, public config: ConfigService, private colors: ColorsService, private animeService: AnimeService) {
+    constructor (
+        private route: ActivatedRoute, 
+        public config: ConfigService, 
+        private colors: ColorsService, 
+        private animeService: AnimeService,
+        public dialogManager: DialogManagerService
+    ) {
         this.API_URL = config.API_URL;
 
         route.data.subscribe(({ anime }) => {

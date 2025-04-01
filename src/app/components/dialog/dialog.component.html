@@ -1,0 +1,9 @@
+<div class="wall" (click)="onClose(null)" ></div>
+<section class="content">
+    <app-note-editor 
+        *ngIf="activeWindow == 'note-editor'"
+        (closed)="onClose($event)"
+        [input]="input"
+        [opened]="open"
+    ></app-note-editor>
+</section>

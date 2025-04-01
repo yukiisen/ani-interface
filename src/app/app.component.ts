@@ -4,10 +4,11 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { SearchbarComponent } from "./components/searchbar/searchbar.component";
 import { TranslationsService } from './services/lang/translations.service';
 import { ColorsService } from './services/colors/colors.service';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @Component({
     selector: 'app-root',
-    imports: [ RouterOutlet, NavbarComponent, SearchbarComponent ],
+    imports: [ RouterOutlet, NavbarComponent, SearchbarComponent, DialogComponent ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
     host: {
