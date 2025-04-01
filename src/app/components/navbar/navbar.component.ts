@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent implements OnInit {
 	selected: string = "home";
-	accentColor: string = "";
+	accentColor?: string;
 
 	@Output("navigate") currentPage = new EventEmitter<string>;
 
@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
 
 
 		// colors implementation
-        this.colors.subscribe("searchbar", (color) => this.accentColor = `rgb(${color.join(",")})`);
+        this.colors.subscribe("searchbar", (color) => this.accentColor = color? `rgb(${color.join(",")})`: undefined);
 	}
 
 	navigateTo (page: string) {

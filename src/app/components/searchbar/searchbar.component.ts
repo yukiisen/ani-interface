@@ -16,6 +16,6 @@ export class SearchbarComponent {
     accentColor?: String;
 
     constructor (private colors: ColorsService) {
-        this.colors.subscribe("searchbar", (color) => this.accentColor = `rgb(${color.join(",")})`);
+        this.colors.subscribe("searchbar", (color) => this.accentColor = color? `rgb(${color.join(",")})`: undefined);
     }
 }

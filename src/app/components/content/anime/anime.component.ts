@@ -1,31 +1,43 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { TranslatorPipe } from '../../../pipes/translator/translator.pipe';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { Episode, Anime, AnimeService } from '../../../services/anime/anime.service';
+import { Observable } from 'rxjs';
+
+import { TranslatorPipe } from '../../../pipes/translator/translator.pipe';
+import { Relation, Episode, Anime, AnimeService, Recommendation } from '../../../services/anime/anime.service';
 import { ConfigService } from '../../../services/config/config.service';
 import { ColorsService } from '../../../services/colors/colors.service';
-import { Observable } from 'rxjs';
+
+import { RelationComponent } from '../widgets/relation/relation.component';
+import { RecommendationComponent } from '../widgets/recommended/recommended.component';
 
 @Component({
   selector: 'app-anime',
-  imports: [ TranslatorPipe, CommonModule ],
+  imports: [ TranslatorPipe, CommonModule, RelationComponent, RecommendationComponent ],
   templateUrl: './anime.component.html',
   styleUrl: './anime.component.scss'
 })
 export class AnimeComponent implements OnInit, AfterViewInit {
     anime: Anime = {} as Anime;
     episodes$!: Observable<Episode[]>;
+    relation$!: Observable<Relation[]>;
+    recommendations$!: Observable<Recommendation[]>;
     episodeDuraion: string[] = [];
     synopsis: string = '';
     API_URL: string;
 
-    @ViewChild("poster") img!: ElementRef;
+    @ViewChild("poster") img!: ElementRef<HTMLImageElement>;
 
     synExpand = false;
 
     constructor (private route: ActivatedRoute, public config: ConfigService, private colors: ColorsService, private animeService: AnimeService) {
         this.API_URL = config.API_URL;
+
+        route.data.subscribe(({ anime }) => {
+            this.anime = anime;
+            this.ngOnInit();
+            window.scrollTo(0, 0);
+        })
     }
 
     ngOnInit(): void {
@@ -37,6 +49,8 @@ export class AnimeComponent implements OnInit, AfterViewInit {
         this.synopsis = this.route.snapshot.data['anime'].synopsis.synopsis || "";
 
         this.episodes$ = this.animeService.fetchEpisodes(this.anime.mal_id);
+        this.relation$ = this.animeService.fetchRelations(this.anime.mal_id);
+        this.recommendations$ = this.animeService.fetchRecommendations(this.anime.mal_id);
     }
 
     ngAfterViewInit(): void {

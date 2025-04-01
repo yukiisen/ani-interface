@@ -81,6 +81,13 @@
 </section>
 
 <section class="right">
-    <section>a</section>
+    <section id="relations">
+        <h1 *ngIf="(relation$ | async)?.length">{{ ("Related" | translator) + ":" }}</h1>
+        <app-relation *ngFor="let relation of relation$ | async" [relation]="relation"></app-relation>
+    </section>
+    <section id="relations">
+        <h1 *ngIf="(recommendations$ | async)?.length">{{ ("Recommended" | translator) + ":" }}</h1>
+        <app-recommendation *ngFor="let recommended of recommendations$ | async" [recommendation]="recommended"></app-recommendation>
+    </section>
 </section>
 

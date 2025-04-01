@@ -24,7 +24,6 @@ export class FeedService {
     constructor(private config: ConfigService) { }
 
     async fetchUpdates () {
-        console.log("fetching with offset "  + this.offset);
         const res = await fetch(`${this.config.API_URL}v1/updates/${this.offset}`);
         return await res.json() as AnimeWithEp[];
     }

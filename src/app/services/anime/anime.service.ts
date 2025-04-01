@@ -46,6 +46,23 @@ export interface Episode {
     user_score?: number,
 }
 
+export interface SearchResult {
+    id: number,
+    mal_id: number,
+    title: string,
+    local_name: string,
+    type: string,
+    rating: string,
+    score: number,
+    status: string,
+    episodes: number,
+    genres: string,
+    themes: string,
+}
+
+export type Recommendation = [ number, SearchResult ]
+export type Relation = [ string, SearchResult ]
+
 @Injectable({
     providedIn: 'root'
 })
@@ -60,8 +77,15 @@ export class AnimeService {
         return this.http.get<{ synopsis: string }>(`${this.config.API_URL}v1/synopsis/${malID}?lang=${this.lang.lang}`);
     }
 
-
     fetchEpisodes (malID: string | number) {
         return this.http.get<Episode[]>(`${this.config.API_URL}v1/anime/${malID}/episodes`);
+    }
+
+    fetchRelations (malID: string | number) {
+        return this.http.get<Relation[]>(`${this.config.API_URL}v1/anime/${malID}/relations`);
+    }
+
+    fetchRecommendations (malID: number | string) {
+        return this.http.get<Recommendation[]>(`${this.config.API_URL}v1/anime/${malID}/recommendations`);
     }
 }

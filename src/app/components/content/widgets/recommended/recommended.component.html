@@ -1,0 +1,18 @@
+<a [routerLink]="['/anime', anime.mal_id]">
+    <img [src]="config.API_URL + 'static/' + anime.local_name.replaceAll(' ', '_') + '.webp'"/>
+
+    <div class="metadata">
+        <div class="info">
+            <h3>{{ anime.title }}</h3>
+            <span>{{ anime.type | translator }} | {{ anime.episodes }} {{ "episode" | translator }}</span>
+            <span>{{ anime.status | translator }}</span>
+            <div class="genres">
+                <span class="genre" *ngFor="let genre of anime.genres.concat(anime.themes)">{{ genre | translator }}</span>
+            </div>
+        </div>
+
+        <p class="votes">
+            <span [style.background-color]="accentColor || ''">{{ votes }} {{ "Vote"| translator }}</span>
+        </p>
+    </div>
+</a>

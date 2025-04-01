@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 
+export type Color = [number, number, number]
+
 @Injectable({
     providedIn: 'root'
 })
 export class ColorsService {
-    private channels: Record<string, ((color: any) => void)[]> = {};
+    private channels: Record<string, ((color?: Color) => void)[]> = {};
+
+    lastColor?: [ number, number, number ];
 
     constructor() { }
 
@@ -32,30 +36,34 @@ export class ColorsService {
                     counter[colorTxt] = (counter[colorTxt] || 0) + 1;
                 }
 
-                const palette = Object.entries(counter)
+                const palette: Color[] = Object.entries(counter)
                     .sort((a, b) => b[1] - a[1])
-                    .map<number[]>(e => e[0].split(",").map(e => +e) )
+                    .map<Color>(e => e[0].split(",").map(e => +e) as Color )
                     .filter((color) => color.filter(d => d >= 200).length < 1);
                 
-                console.log(palette);
                 const dominantColor = this.normalize(palette[1]);
                 
                 for (const call of this.channels[channel] || []) call(dominantColor);
+                this.lastColor = dominantColor;
 
                 res(dominantColor);
             }).bind(this);
         })
     }
 
-    private normalize (color: number[]) {
-        if (color.filter(c => c <= 80).length > 1) return color.map(c => Math.min(255, c + 60));
-        else if (color.filter(c => c >= 200).length > 1) return color.map(c => Math.max(0, c - 60));
+    private normalize (color: Color): Color {
+        if (color.filter(c => c <= 80).length > 1) return color.map(c => Math.min(255, c + 40)) as Color;
+        else if (color.filter(c => c >= 200).length > 1) return color.map(c => Math.max(0, c - 60)) as Color;
 
         return color;
     }
 
-    subscribe (channel: string, callback: (color: [number, number, number]) => void) {
+    subscribe (channel: string, callback: (color?: Color) => void) {
         this.channels[channel] ??= [];
         this.channels[channel].push(callback);
+    }
+
+    clearColor (channel: string) {
+        for (const call of this.channels[channel] || []) call();
     }
 }
