@@ -1,3 +1,20 @@
-<p>note-editor works!</p>
-<p>{{ input }}</p>
-
+<div class="controls">
+    <div class="mode">
+        <span 
+            [class.active]="activeMode == 'vim'"
+            [style.background-color]="activeMode == 'vim'? darken(colors.lastColor || [0, 0, 0], 20): ''"
+            [style.border-color]="activeMode == 'vim'? darken(colors.lastColor || [0, 0, 0], 0): ''"
+            (click)="activeMode = 'vim'"
+        >{{ "Vim" | translator }}</span>
+        <span 
+            [class.active]="activeMode == 'normal'"
+            [style.background-color]="activeMode == 'normal'? darken(colors.lastColor || [0, 0, 0], 20): ''"
+            [style.border-color]="activeMode == 'normal'? darken(colors.lastColor || [0, 0, 0], 0): ''"
+            (click)="activeMode = 'normal'"
+        >{{ "Normal" | translator }}</span>
+    </div>
+    <div class="buttons">
+        <button class="action-button delete">{{ "Discard" | translator }}</button>
+        <button class="action-button" appColorable>{{ "Add Note" | translator }}</button>
+    </div>
+</div>

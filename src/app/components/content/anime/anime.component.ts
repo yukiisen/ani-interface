@@ -10,11 +10,15 @@ import { ColorsService } from '../../../services/colors/colors.service';
 
 import { RelationComponent } from '../widgets/relation/relation.component';
 import { RecommendationComponent } from '../widgets/recommended/recommended.component';
-import {DialogManagerService} from '../../../services/dialogs/dialog-manager.service';
+import { NoteComponent } from '../widgets/note/note.component';
+import { NotesService, Note } from '../../../serivces/notes/notes.service';
+import { DialogManagerService } from '../../../services/dialogs/dialog-manager.service';
+
+import { ColorableDirective } from '../../../directives/colorable.directive';
 
 @Component({
   selector: 'app-anime',
-  imports: [ TranslatorPipe, CommonModule, RelationComponent, RecommendationComponent ],
+  imports: [ TranslatorPipe, CommonModule, RelationComponent, RecommendationComponent, NoteComponent, ColorableDirective ],
   templateUrl: './anime.component.html',
   styleUrl: './anime.component.scss'
 })
@@ -23,6 +27,7 @@ export class AnimeComponent implements OnInit, AfterViewInit {
     episodes$!: Observable<Episode[]>;
     relation$!: Observable<Relation[]>;
     recommendations$!: Observable<Recommendation[]>;
+    notes$!: Observable<Note[]>;
     episodeDuraion: string[] = [];
     synopsis: string = '';
     API_URL: string;
@@ -33,10 +38,11 @@ export class AnimeComponent implements OnInit, AfterViewInit {
 
     constructor (
         private route: ActivatedRoute, 
-        public config: ConfigService, 
         private colors: ColorsService, 
         private animeService: AnimeService,
-        public dialogManager: DialogManagerService
+        private notesService: NotesService,
+        private dialog: DialogManagerService,
+        public config: ConfigService,
     ) {
         this.API_URL = config.API_URL;
 
@@ -58,6 +64,9 @@ export class AnimeComponent implements OnInit, AfterViewInit {
         this.episodes$ = this.animeService.fetchEpisodes(this.anime.mal_id);
         this.relation$ = this.animeService.fetchRelations(this.anime.mal_id);
         this.recommendations$ = this.animeService.fetchRecommendations(this.anime.mal_id);
+        this.notes$ = this.notesService.getNotes(this.anime.mal_id);
+
+        this.newNote();
     }
 
     ngAfterViewInit(): void {
@@ -67,5 +76,11 @@ export class AnimeComponent implements OnInit, AfterViewInit {
     // Used to sort episodes after they're fetched
     sortEps (a: Episode, b: Episode) {
         return a.episode_number - b.episode_number;
+    }
+
+    async newNote () {
+        const note = await this.dialog.open("note-editor", null) as Note;
+
+        console.log(note);
     }
 }

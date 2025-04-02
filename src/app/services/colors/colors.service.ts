@@ -10,7 +10,7 @@ export class ColorsService {
 
     lastColor?: [ number, number, number ];
 
-    constructor() { }
+    constructor() { console.log(this) }
 
     getDominantColor (channel: string, img: HTMLImageElement) {
         return new Promise((res, rej) => {

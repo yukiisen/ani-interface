@@ -1,0 +1,57 @@
+@use '../../../../colors.scss' as *;
+
+:host {
+    width: max(60%, 600px);
+    height: 80%;
+
+    > * {
+        width: 100%;
+    }
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.mode {
+    display: block;
+    justify-self: flex-start;
+    
+    width: 150px;
+    
+    * { font-size: 14px; }
+
+    span {
+        $border_radius: 10px;
+        display: inline-block;
+        padding: 2px;
+        border: 3px solid lighten($background, 16);
+        width: 50%;
+        text-align: center;
+        background-color: lighten($background, 4);
+
+        &:first-child {
+            // &:not(.active) { border-inline-end: none; }
+            border-top-left-radius: $border_radius;
+            border-bottom-left-radius: $border_radius;
+        }
+
+        &:last-child {
+            // &:not(.active) { border-inline-start: none; }
+            border-top-right-radius: $border_radius;
+            border-bottom-right-radius: $border_radius;
+        }
+    }
+}
+
+.buttons {
+    display: flex;
+
+    button { margin-inline-start: 10px; }
+}
+
+.delete {
+    background-color: #ed2e2e;
+}

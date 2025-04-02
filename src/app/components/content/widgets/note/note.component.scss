@@ -1,0 +1,42 @@
+@use '../../../../../colors.scss' as *;
+
+:host {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    &:hover {
+        background-color: darken($background, 2);
+    }
+
+    border-bottom: 1px solid $splitter-color;
+    
+    &:last-child {
+        border-color: transparent;
+        border-radius: 8px;
+    }
+
+}
+
+.title {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.content {
+    white-space: pre-wrap;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+        margin: 3px;
+        font-size: 14px;
+    }
+
+    .delete {
+        background-color: #ee2c2c;
+    }
+}

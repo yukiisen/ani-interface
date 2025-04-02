@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NoteEditorComponent } from '../windows/note-editor/note-editor.component';
 import { DialogManagerService } from '../../services/dialogs/dialog-manager.service';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-dialog',
@@ -21,13 +21,15 @@ export class DialogComponent {
 
     private responder = (_value: unknown) => {};
 
+    closeTimeout?: number;
+
     constructor (private manager: DialogManagerService) {
         this.manager.handler.subscribe(([window, input, done]) => {
+            clearTimeout(this.onClose(null));
+
             this.activeWindow = window;
             this.input = input;
             this.responder = done;
-
-            console.log(this);
 
             this.visible = true;
             setTimeout(() => { this.open = true }, 10);
@@ -37,6 +39,6 @@ export class DialogComponent {
     onClose (ev: any) {
         this.responder(ev);
         this.open = false;
-        setTimeout(() => { this.visible = false }, 100);
+        return setTimeout(() => { this.visible = false }, 100);
     }
 }
