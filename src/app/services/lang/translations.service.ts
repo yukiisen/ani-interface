@@ -5,7 +5,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 })
 export class TranslationsService {
     data: Record<string, string> = {}
-    lang: string = "en";
+    lang: string = "ar";
     direction: "ltr" | "rtl" = "ltr"
     loaded = false;
     onLoad = new EventEmitter<void>

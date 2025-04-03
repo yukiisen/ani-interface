@@ -14,13 +14,20 @@
         >{{ "Normal" | translator }}</span>
     </div>
     <div class="buttons">
-        <button class="action-button delete">{{ "Discard" | translator }}</button>
-        <button class="action-button" appColorable>{{ "Add Note" | translator }}</button>
+        <button class="action-button delete" (click)="close(false)">{{ (state == 0? "Discard" : "Delete") | translator }}</button>
+        <button class="action-button" appColorable (click)="close(true)">{{ (state == 0? "Add Note" : "Save") | translator }}</button>
     </div>
 </div>
 
-<input type="text" class="text-input" [disabled]="state == 1"/>
+<input 
+    type="text" 
+    class="text-input" 
+    [placeholder]="'Username' | translator" 
+    [disabled]="state == 1"
+    [(ngModel)]="output.user"
+/>
 
 <section class="editor">
     <app-vim *ngIf="activeMode == 'vim'"></app-vim>
+    <textarea [placeholder]="('Enter a Note' | translator) + '...'" *ngIf="activeMode == 'normal'" class="text-input" [(ngModel)]="output.note" #areainput></textarea>
 </section>

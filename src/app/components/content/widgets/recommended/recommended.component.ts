@@ -17,19 +17,11 @@ export class RecommendationComponent implements OnInit {
     votes!: Recommendation[0];
     anime!: Recommendation[1];
 
-    accentColor?: string;
-
-    constructor (public config: ConfigService, colors: ColorsService) {
-        colors.subscribe("searchbar", (color) => {
-            if (!color) return this.accentColor = undefined;
-            this.accentColor = `rgb(${color.join(",")})`;
-        });
-        
-        const color = colors.lastColor;
-        if (color) {
-            this.accentColor = `rgb(${color.join(",")})`;
-        }
+    get accentColor (): string {
+        return `rgb(${this.colors.lastColor?.join(",")})`;
     }
+
+    constructor (public config: ConfigService, private colors: ColorsService) {}
 
     ngOnInit(): void {
         this.votes = this.data[0];

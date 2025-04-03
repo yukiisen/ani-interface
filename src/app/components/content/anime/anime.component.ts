@@ -66,7 +66,7 @@ export class AnimeComponent implements OnInit, AfterViewInit {
         this.recommendations$ = this.animeService.fetchRecommendations(this.anime.mal_id);
         this.notes$ = this.notesService.getNotes(this.anime.mal_id);
 
-        this.newNote();
+        // this.newNote();
     }
 
     ngAfterViewInit(): void {
@@ -78,9 +78,16 @@ export class AnimeComponent implements OnInit, AfterViewInit {
         return a.episode_number - b.episode_number;
     }
 
-    async newNote () {
-        const note = await this.dialog.open("note-editor", null) as Note;
+    updateNotes () {
+        this.notes$ = this.notesService.getNotes(this.anime.mal_id);
+    }
 
-        console.log(note);
+    async newNote () {
+        const note = await this.dialog.open("note-editor", this.anime.mal_id) as Note | null;
+        if (note) {
+            const result = await this.notesService.addNote(note);
+            if (result) this.updateNotes();
+            else alert("failed for some reason!");
+        }
     }
 }

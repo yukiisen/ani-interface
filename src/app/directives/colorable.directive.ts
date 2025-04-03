@@ -5,22 +5,20 @@ import { Color, ColorsService } from '../services/colors/colors.service';
     selector: '[appColorable]',
     host: {
         '[style.background-color]': 'accentColor',
-        '[style.border]': '"3px solid red"',
+        '[style.border]': '"3px solid transparent"',
         '[style.border-color]': 'borderColor',
     }
 })
 export class ColorableDirective {
 
-    accentColor: string;
-    borderColor: string;
+    constructor(private colors: ColorsService) {}
 
-    constructor(private colors: ColorsService) { 
-        this.accentColor = `rgb(${this.colors.lastColor?.join(",")})`;
-        this.borderColor = `rgb(${this.darken(this.colors.lastColor || [0, 0, 0], 20).join(",")})`;
-        this.colors.subscribe('searchbar', (color) => {
-            this.accentColor = `rgb(${color?.join(",")})`;
-            this.borderColor = `rgb(${this.darken(color || [0, 0, 0], 20).join(",")})`;
-        })
+    get borderColor (): string {
+        return `rgb(${this.darken(this.colors.lastColor || [0, 0, 0], 20).join(",")})`;
+    }
+
+    get accentColor (): string {
+        return `rgb(${this.colors.lastColor?.join(",")})`;
     }
     
     darken (color: Color, amount: number): Color {

@@ -96,7 +96,7 @@
             <p>There's nothing to display here</p>
             <button class="action-button" (click)="newNote()" appColorable>{{ "Add Note" | translator }}</button>
         </div>
-        <app-note *ngFor="let note of notes$ | async" [note]="note"></app-note>
+        <app-note *ngFor="let note of notes$ | async" [note]="note" (deleted)="updateNotes()"></app-note>
     </section>
 </section>
 

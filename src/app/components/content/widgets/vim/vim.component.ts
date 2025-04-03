@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ColorsService } from '../../../../services/colors/colors.service';
 
@@ -22,7 +22,7 @@ function BindNormal(...keys: string[]): MethodDecorator {
     templateUrl: './vim.component.html',
     styleUrl: './vim.component.scss'
 })
-export class VimComponent implements OnInit {
+export class VimComponent implements OnInit, OnDestroy {
     @Input() value = `:host {
     display: flex;
     width: 100%;
@@ -40,7 +40,7 @@ export class VimComponent implements OnInit {
     }
 }`;
 
-    constructor (public colors: ColorsService) {}
+    constructor (public colors: ColorsService) { console.log("uwu") }
 
     data: string[][] = [];
     selected: [number, number] = [0, 0];
@@ -60,7 +60,7 @@ export class VimComponent implements OnInit {
             this.data.push(line.split(""));
         });
 
-        document.addEventListener("keydown", this.initKeyBindings.bind(this));
+        document.addEventListener("keydown", (e) => this.initKeyBindings(e));
     }
 
     getColor () {
@@ -68,6 +68,7 @@ export class VimComponent implements OnInit {
     }
 
     initKeyBindings (e: KeyboardEvent) {
+        if (["Shift", "Control", "Alt"].includes(e.key)) return;
         let command = '';
 
         if (e.ctrlKey) command += 'Ctrl+';
@@ -97,6 +98,13 @@ export class VimComponent implements OnInit {
 
         this.repeat = 0;
         this.command = '';
+
+
+        console.log("Hi mom");
+    }
+
+    ngOnDestroy(): void {
+        document.removeEventListener("keydown", (e) => this.initKeyBindings(e));
     }
 
     private get currentLine () {
@@ -148,7 +156,7 @@ export class VimComponent implements OnInit {
         this.selected = pos;
     }
 
-    @BindNormal("_")
+    @BindNormal("_", "^")
     moveToFirstWord(_: string) {
         let line = this.currentLine;
         let index = 0;
@@ -243,7 +251,7 @@ export class VimComponent implements OnInit {
 
     @BindNormal("dj", "dk", "dl", "dh", "d$", "d_", "D")
     deleteUntill(key: "dj" | "dk" | "dl" | "dh" | "d$" | "d_" | "D") {
-        const start = this.selected.copyWithin(0, 0);
+        const start = this.selected.map(e => e);
 
         let method: (key: any) => void;
 
@@ -257,11 +265,21 @@ export class VimComponent implements OnInit {
 
         const end = this.selected.copyWithin(0, 0);
 
-        console.log(start, end);
-
-        if (start[0] !== end[0]) this.data.splice(Math.min(start[0], end[0]), this.repeat + 1);
-        else this.currentLine.splice(Math.min(start[1], end[1]), Math.abs(start[1] - end[1]));
+        if (start[0] !== end[0]) {
+            this.data.splice(Math.min(start[0], end[0]), this.repeat + 1);
+            this.selected[0] = start[0];
+            this.moveToFirstWord("");
+        }
+        else {
+            this.currentLine.splice(Math.min(start[1], end[1]), Math.abs(start[1] - end[1]) + 1);
+            this.selected = start[1] - end[1] < 0? [ start[0], start[1] + 1 ] : [ end[0], end[1] ];
+        };
 
         this.repeat = 0;
+    }
+
+    @BindNormal("x")
+    deleteLetter(_: string) {
+        this.currentLine.splice(this.selected[1], 1);
     }
 }

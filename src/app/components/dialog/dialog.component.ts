@@ -39,6 +39,6 @@ export class DialogComponent {
     onClose (ev: any) {
         this.responder(ev);
         this.open = false;
-        return setTimeout(() => { this.visible = false }, 100);
+        return setTimeout(() => { this.visible = false; this.activeWindow = undefined }, 100);
     }
 }

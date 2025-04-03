@@ -1,6 +1,6 @@
 <p class="title">{{ "By" | translator }} {{ data.user }}</p>
 <p class="content">{{ data.note }}</p>
 <div class="buttons">
-    <button class="action-button" appColorable>{{ "Edit" | translator }}</button>
-    <button class="action-button delete">{{ "Delete" | translator }}</button>
+    <button class="action-button" (click)="edit()" appColorable>{{ "Edit" | translator }}</button>
+    <button class="action-button delete" (click)="delete()">{{ "Delete" | translator }}</button>
 </div>
