@@ -1,1 +1,19 @@
-<p>vim works!</p>
+<div 
+    *ngFor="let line of data; let linenum = index" 
+    class="line"
+    [style.border-color]="linenum == selected[0]? getColor() : 'transparent'"
+>
+    <div 
+        class="line-number" 
+        [class.current]="linenum == selected[0]"
+        [style.color]="linenum == selected[0]? getColor() : ''"
+    >{{ abs(linenum - selected[0]) || linenum + 1 }}</div>
+
+    <div class="letters">
+        <div 
+            *ngFor="let letter of line; let letternum = index" 
+            [style.background-color]="(linenum == selected[0] && letternum == selected[1] && mode == 'normal')? getColor() : 'transparent'"
+        >{{ letter }}</div>
+    </div>
+
+</div>

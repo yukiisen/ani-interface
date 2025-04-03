@@ -6,6 +6,7 @@ import { VimComponent } from '../../content/widgets/vim/vim.component';
 import { ColorableDirective } from '../../../directives/colorable.directive';
 import { TranslatorPipe } from '../../../pipes/translator/translator.pipe';
 import { ColorsService } from '../../../services/colors/colors.service';
+import { CommonModule } from '@angular/common';
 
 enum State {
     New,
@@ -14,7 +15,7 @@ enum State {
 
 @Component({
     selector: 'app-note-editor',
-    imports: [ TranslatorPipe, VimComponent, ColorableDirective ],
+    imports: [ TranslatorPipe, VimComponent, ColorableDirective, CommonModule ],
     templateUrl: './note-editor.component.html',
     styleUrl: './note-editor.component.scss',
     host: {

@@ -95,6 +95,12 @@
         "Urban Fantasy": "خيال حضري",
         "Vote": "تصويت",
         "Recommended": "موصى به",
-        "Related": "ذات صلة"
+        "Related": "ذات صلة",
+        "Normal": "عادي",
+        "Add Note": "اضافة ملاحظة",
+        "Discard": "تجاهل",
+        "Delete": "حذف",
+        "Edit": "تعديل",
+        "Notes": "ملاحظات"
     }
 }

@@ -18,3 +18,9 @@
         <button class="action-button" appColorable>{{ "Add Note" | translator }}</button>
     </div>
 </div>
+
+<input type="text" class="text-input" [disabled]="state == 1"/>
+
+<section class="editor">
+    <app-vim *ngIf="activeMode == 'vim'"></app-vim>
+</section>
