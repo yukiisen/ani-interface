@@ -19,6 +19,8 @@
     justify-content: space-between;
     align-items: flex-start;
 
+    flex: 0 1 auto;
+
     * { font-size: 14px; }
 }
 
@@ -63,8 +65,8 @@
 }
 
 .editor {
-    height: 100%;
-    max-height: 100%;
+    overflow: auto;
+    flex: 1;
 }
 
 input, .editor {
@@ -74,4 +76,5 @@ input, .editor {
 
 input {
     margin: 10px 0;
+    flex: 0 1 auto;
 }
