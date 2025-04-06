@@ -3,7 +3,7 @@ import { TranslatorPipe } from '../../../../pipes/translator/translator.pipe';
 import { AnimeWithEp } from '../../../../services/feed/feed.service';
 import { ConfigService } from '../../../../services/config/config.service';
 import { CommonModule } from '@angular/common';
-import {RouterLink} from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
 	selector: 'app-card',

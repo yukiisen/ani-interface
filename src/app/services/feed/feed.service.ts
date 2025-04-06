@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ConfigService} from '../config/config.service';
+import { ConfigService } from '../config/config.service';
 
 export interface AnimeWithEp {
     anime_id: number,
@@ -13,18 +13,25 @@ export interface AnimeWithEp {
     score?: number
 }
 
+export interface AnimeCard {
+    mal_id: number,
+    local_name: string,
+    title: string,
+    score: number
+}
 
 @Injectable({
     providedIn: 'root'
 })
 export class FeedService {
     updates: AnimeWithEp[] = [];
-    private offset = 0;
+    top: AnimeCard[] = [];
+    private updatesOffset = 0;
 
-    constructor(private config: ConfigService) { }
+    constructor(private config: ConfigService) {}
 
     async fetchUpdates () {
-        const res = await fetch(`${this.config.API_URL}v1/updates/${this.offset}`);
+        const res = await fetch(`${this.config.API_URL}v1/updates/${this.updatesOffset}`);
         return await res.json() as AnimeWithEp[];
     }
 
@@ -32,7 +39,7 @@ export class FeedService {
         const entries = await this.fetchUpdates()
         
         this.updates.push(...entries);
-        this.offset += 20;
+        this.updatesOffset += 20;
         
         return entries;
     }
