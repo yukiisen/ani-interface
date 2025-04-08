@@ -66,9 +66,37 @@ section.main {
         border-radius: 30px;
     }
 
-    > img {
+    .poster {
+        width: fit-content;
+
+        .buttons {
+            width: 100%;
+            display: flex;
+            font-size: 18px;
+            border-radius: 8px;
+
+            button { display: flex; justify-content: center; }
+
+            svg {
+                width: 22px;
+            }
+
+            .addlist {
+                flex: 1;
+                margin-inline-end: 5px;
+            }
+
+            .fav svg {
+                margin: 0;
+                fill: $text;
+                stroke: $text;
+            }
+        }
+    }
+
+    .poster > img {
         height: 340px;
-        border-radius: 10px;
+        border-radius: 8px;
     }
 
     > div {

@@ -12,6 +12,6 @@ section {
 
 app-dialog.visible {
     ~ :not(app-dialog) {
-        filter: blur(0.6rem);
+        filter: blur(.6rem);
     }
 }

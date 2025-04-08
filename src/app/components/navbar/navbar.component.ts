@@ -17,9 +17,10 @@ export class NavbarComponent implements OnInit {
 	@Output("navigate") currentPage = new EventEmitter<string>;
 
 	routingMap: Record<string, string> = {
-		updates: "updates",
-		home: "home",
-		seasons: "seasons/current"
+		"updates": "updates",
+		"home": "home",
+		"seasons": "seasons/current",
+		"global-rating": "top"
 	}
 
 	constructor (private router: Router, private colors: ColorsService) {}

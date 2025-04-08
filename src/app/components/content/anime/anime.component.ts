@@ -11,16 +11,16 @@ import { ColorsService } from '../../../services/colors/colors.service';
 import { RelationComponent } from '../widgets/relation/relation.component';
 import { RecommendationComponent } from '../widgets/recommended/recommended.component';
 import { NoteComponent } from '../widgets/note/note.component';
-import { NotesService, Note } from '../../../serivces/notes/notes.service';
+import { NotesService, Note } from '../../../services/notes/notes.service';
 import { DialogManagerService } from '../../../services/dialogs/dialog-manager.service';
 
 import { ColorableDirective } from '../../../directives/colorable.directive';
 
 @Component({
-  selector: 'app-anime',
-  imports: [ TranslatorPipe, CommonModule, RelationComponent, RecommendationComponent, NoteComponent, ColorableDirective ],
-  templateUrl: './anime.component.html',
-  styleUrl: './anime.component.scss'
+    selector: 'app-anime',
+    imports: [ TranslatorPipe, CommonModule, RelationComponent, RecommendationComponent, NoteComponent, ColorableDirective ],
+    templateUrl: './anime.component.html',
+    styleUrl: './anime.component.scss'
 })
 export class AnimeComponent implements OnInit, AfterViewInit {
     anime: Anime = {} as Anime;
@@ -42,6 +42,7 @@ export class AnimeComponent implements OnInit, AfterViewInit {
         private animeService: AnimeService,
         private notesService: NotesService,
         private dialog: DialogManagerService,
+        private element: ElementRef<HTMLDivElement>,
         public config: ConfigService,
     ) {
         this.API_URL = config.API_URL;
@@ -49,7 +50,7 @@ export class AnimeComponent implements OnInit, AfterViewInit {
         route.data.subscribe(({ anime }) => {
             this.anime = anime;
             this.ngOnInit();
-            window.scrollTo(0, 0);
+            this.element.nativeElement.scrollTop = 0;
         })
     }
 
@@ -66,7 +67,7 @@ export class AnimeComponent implements OnInit, AfterViewInit {
         this.recommendations$ = this.animeService.fetchRecommendations(this.anime.mal_id);
         this.notes$ = this.notesService.getNotes(this.anime.mal_id);
 
-        // this.newNote();
+        // this.addToList();
     }
 
     ngAfterViewInit(): void {
@@ -90,4 +91,6 @@ export class AnimeComponent implements OnInit, AfterViewInit {
             else alert("failed for some reason!");
         }
     }
+
+    addToList () { this.dialog.open('user-lists', this.anime.mal_id); }
 }

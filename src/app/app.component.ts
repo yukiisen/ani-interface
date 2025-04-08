@@ -18,6 +18,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 export class AppComponent {
     title = "updates"
     constructor (public translation: TranslationsService, private router: Router, private colors: ColorsService) {
+        // return all colors to normal when the user leaves a page
         this.router.events.subscribe(ev => {
             if (ev instanceof NavigationStart) {
                 this.colors.clearColor("searchbar");

@@ -53,6 +53,7 @@
     > * { width: 100%; }
 
     .name {
+        word-break: break-all;
         font-size: 18px;
         height: 28px;
         overflow: hidden;

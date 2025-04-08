@@ -1,0 +1,64 @@
+@use '../../../../colors.scss' as *;
+
+:host {
+    height: 60%;
+    width: max(400px, 30%);
+    flex-direction: column;
+    padding: 7px !important;
+}
+
+* { transition-duration: 0ms; }
+
+.form {
+    display: flex;
+
+    input {
+        flex: 1;
+        margin-inline-end: 5px;
+        background-color: lighten($background, 5) !important;
+    }
+
+    * {
+        border-width: 2px !important;
+    }
+}
+
+.lists {
+    flex: 1;
+    padding: 5px;
+    margin-top: 5px;
+    border-width: 1px !important;
+    background-color: transparent !important;
+
+    border-radius: 3px;
+
+    overflow-x: auto;
+    list-style-type: none;
+}
+
+
+.lists li {
+    display: flex;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+
+    &:last-child { margin-bottom: 0; border: none; }
+
+    border-bottom: 2px solid $splitter-color;
+    span { flex: 1; }
+
+    svg { 
+        width: 25px;
+        margin: 0;
+        padding: 3px; 
+        fill: white;
+        stroke: white;
+    }
+
+    button { 
+        padding: 0; 
+        margin: 0; 
+        display: flex; 
+        background-color: transparent;
+    }
+}

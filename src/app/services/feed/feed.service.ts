@@ -17,7 +17,8 @@ export interface AnimeCard {
     mal_id: number,
     local_name: string,
     title: string,
-    score: number
+    score: number,
+    status: string
 }
 
 @Injectable({
@@ -27,6 +28,7 @@ export class FeedService {
     updates: AnimeWithEp[] = [];
     top: AnimeCard[] = [];
     private updatesOffset = 0;
+    private topOffset = 0;
 
     constructor(private config: ConfigService) {}
 
@@ -35,13 +37,30 @@ export class FeedService {
         return await res.json() as AnimeWithEp[];
     }
 
-    async getNewEntries() {
-        const entries = await this.fetchUpdates()
+    async fetchTop () {
+        const res = await fetch(`${this.config.API_URL}v1/top?limit=20&offset=${this.topOffset}`);
+        return await res.json() as AnimeCard[];
+    }
+
+    async getNewUpdates(offset: number) {
+        if (offset < this.updates.length - 1) return this.updates.slice(offset, offset + 20)
+
+        const entries = await this.fetchUpdates();
         
         this.updates.push(...entries);
-        this.updatesOffset += 20;
+        this.updatesOffset += entries.length;
         
         return entries;
     }
-    
+
+    async getTopAnimes (offset: number) {
+        if (offset < this.top.length - 1) return this.top.slice(offset, offset + 20)
+
+        const entries = await this.fetchTop();
+        
+        this.top.push(...entries);
+        this.topOffset+= entries.length;
+        
+        return entries;
+    }
 }

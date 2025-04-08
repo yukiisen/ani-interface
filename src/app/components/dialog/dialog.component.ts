@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { NoteEditorComponent } from '../windows/note-editor/note-editor.component';
 import { DialogManagerService } from '../../services/dialogs/dialog-manager.service';
 import { CommonModule } from '@angular/common';
+import { ListsComponent } from '../windows/lists/lists.component';
 
 @Component({
     selector: 'app-dialog',
-    imports: [ NoteEditorComponent, CommonModule ],
+    imports: [ NoteEditorComponent, CommonModule, ListsComponent ],
     templateUrl: './dialog.component.html',
     styleUrl: './dialog.component.scss',
     host: {

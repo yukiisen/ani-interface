@@ -4,7 +4,6 @@
             [class.active]="activeMode == 'vim'"
             [style.background-color]="activeMode == 'vim'? darken(colors.lastColor || [0, 0, 0], 20): ''"
             [style.border-color]="activeMode == 'vim'? darken(colors.lastColor || [0, 0, 0], 0): ''"
-            (click)="activeMode = 'vim'"
         >{{ "Vim" | translator }}</span>
         <span 
             [class.active]="activeMode == 'normal'"

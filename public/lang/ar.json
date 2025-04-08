@@ -92,6 +92,7 @@
         "Martial Arts": "فنون القتال",
         "Showbiz": "صناعة الترفيه",
         "Gore": "دموي",
+        "Delinquents": "عصابات",
         "Urban Fantasy": "خيال حضري",
         "Vote": "تصويت",
         "Recommended": "موصى به",
@@ -104,6 +105,8 @@
         "Notes": "ملاحظات",
         "Enter a Note": "ادخل ملاحظة",
         "Username": "اسم المستخدم",
-        "Save": "حفظ"
+        "Save": "حفظ",
+        "Add List": "اضافة قائمة",
+        "Add to List": "اضافة للفائمة"
     }
 }

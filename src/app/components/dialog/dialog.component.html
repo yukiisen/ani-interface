@@ -6,4 +6,10 @@
         [input]="input"
         [opened]="open"
     ></app-note-editor>
+    <app-lists
+        *ngIf="activeWindow == 'user-lists'"
+        (closed)="onClose($event)"
+        [input]="input"
+        [opened]="open"
+    ></app-lists>
 </section>

@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Dialog } from '../../../classes/dialog';
-import { Note } from '../../../serivces/notes/notes.service';
+import { Note } from '../../../services/notes/notes.service';
 import { DialogManagerService } from '../../../services/dialogs/dialog-manager.service';
 import { VimComponent } from '../../content/widgets/vim/vim.component';
 import { ColorableDirective } from '../../../directives/colorable.directive';
