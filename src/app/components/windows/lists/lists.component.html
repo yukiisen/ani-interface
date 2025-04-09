@@ -4,8 +4,8 @@
 </div>
 
 <ul class="lists" appColorable>
-    <li *ngFor="let i of [1,2,3,4,5,6,7,8,9,7,9,8,7,5,4,6,4,4,1]">
-        <span class="name">أشاهدها حاليا</span>
+    <li *ngFor="let list of lists$ | async">
+        <span class="name">{{ list.name }}</span>
         <button class="action-button">
             <svg viewBox="0 0 24 24"><path d="M23,11H13V1a1,1,0,0,0-1-1h0a1,1,0,0,0-1,1V11H1a1,1,0,0,0-1,1H0a1,1,0,0,0,1,1H11V23a1,1,0,0,0,1,1h0a1,1,0,0,0,1-1V13H23a1,1,0,0,0,1-1h0A1,1,0,0,0,23,11Z"/></svg>
         </button>

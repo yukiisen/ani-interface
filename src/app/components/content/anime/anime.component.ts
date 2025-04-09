@@ -67,7 +67,7 @@ export class AnimeComponent implements OnInit, AfterViewInit {
         this.recommendations$ = this.animeService.fetchRecommendations(this.anime.mal_id);
         this.notes$ = this.notesService.getNotes(this.anime.mal_id);
 
-        // this.addToList();
+        this.addToList();
     }
 
     ngAfterViewInit(): void {

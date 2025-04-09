@@ -4,6 +4,8 @@ import { DialogManagerService } from '../../../services/dialogs/dialog-manager.s
 import { TranslatorPipe } from '../../../pipes/translator/translator.pipe';
 import { ColorableDirective } from '../../../directives/colorable.directive';
 import { CommonModule } from '@angular/common';
+import { ListsService, UserList } from '../../../services/lists/lists.service';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-lists',
@@ -19,9 +21,11 @@ export class ListsComponent implements Dialog<number, void> {
     @Input() opened: boolean = true;
     @Output() closed: EventEmitter<void> = new EventEmitter;
 
-    constructor (public manager: DialogManagerService) {}
+    lists$!: Observable<UserList[]>;
+
+    constructor (public manager: DialogManagerService, private userlists: ListsService) {}
 
     ngOnInit(): void {
-        
+        this.lists$ = this.userlists.getLists();
     }
 }

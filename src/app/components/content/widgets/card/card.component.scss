@@ -3,10 +3,10 @@
     flex-direction: column;
     justify-content: flex-end;
 
-    //$slots: 6;
+    $slots: 6;
 
-    //width: (100% / $slots) - 1%;
-    width: 170px;
+    width: (100% / $slots) - 1%;
+    //width: 170px;
     aspect-ratio: 315/450;
     margin: 0.5%;
     
